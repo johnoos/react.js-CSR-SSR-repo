@@ -1,0 +1,63 @@
+       
+/*****   CODING FOR UNRECOGNISED EVENTS
+
+
+
+var Something = React.createClass({ 
+    handleMyEvent: function(e) {
+        // do something    
+    },
+    componentDidMount: function() {
+        window.addEventListener("someEvent", this.handleMyEvent); 
+    },
+    componentWillUnmount: function() { 
+        window.removeEventListener("someEvent", this.handleMyEvent);
+    },
+    render: function() {
+        return ( <div>Hello!</div>); 
+    }
+});
+
+*******/
+
+
+
+/*****   MORE NOTES ON THE SUBJECT
+
+    When dealing with events in React, the value of 'this' inside your event handler is different 
+    from what you would normally see in the non-React DOM world. 
+    In the non-React world, the value of 'this' inside an event handler refers to the element that 
+    your event is listening on:
+            function doSomething(e) { console.log(this); }
+            var foo = document.querySelector("button");
+            foo.addEventListener("click", doSomething, false);
+    In the React world (i.e. when your components are created using React.createClass), the value
+    of 'this' inside your event handler always refers to the component the event handler lives in.
+    
+    var CounterParent = React.createClass({ 
+        getInitialState: function() {
+           return { count: 0 }; 
+        },
+        increase: function(e) {
+            console.log(this); // CounterParent component
+            this.setState({
+             count: this.state.count + 1}); 
+        },
+        render: function() { return (
+            <div>
+                <Counter display={this.state.count}/> 
+                <button onClick={this.increase}>
+                +
+                </button>
+            </div> );
+        } 
+    });
+
+    In this example, the value of 'this' inside the increase event handler refers to the CounterParent 
+    component. It doesn’t refer to the element that triggered the event. 
+    You get this behavior because React automatically binds all methods inside a component to this, EXCEPT
+    WITH ES6 where binds to 'this' are explicit.
+
+        <button onClick={this.increase.bind(this)}>+</button>
+
+*****/ 

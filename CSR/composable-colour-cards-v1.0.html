@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>More Components!</title>  <!-- appears in browser tab -->
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<style> 
+    #container {
+        padding: 50px;
+        background-color: #FFF; }
+
+    .colorSquare {
+      box-shadow: 0px 0px 25px 0px #333;
+      width: 242px;
+      height: 242px;
+      margin-bottom: 15px;
+    }
+
+    .colorArea input {
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #CCC;
+    }
+
+    .colorArea button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      background-color: #666;
+      color: #FFF;
+      border: 2px solid #666;
+    }
+
+    .colorArea button:hover {
+      background-color: #111;
+      border-color: #111;
+      cursor: pointer;
+    }
+
+  </style> 
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script type="text/babel">
+
+        const COLOURS = ["#FF6663", "#FFA737", "#58B3FF", "#FF605F", "#FFD52E",
+                         "#49DD8E", "#AE99FF", "#393E41", "#E94F37", "#1C89BF",
+                         "#A1D363", "#ffaacc"];
+
+        // var destination = document.querySelector("#container");
+
+        // can I split up in-browser code? -----------------------------------
+        class Colorizer extends React.Component {
+          constructor(props, context) {
+                super(props, context);
+    
+            this.state = {
+              color: "",
+              bgColor: "white"
+            }
+    
+            this.colorValue = this.colorValue.bind(this);
+            this.setNewColor = this.setNewColor.bind(this);
+          }
+    
+          colorValue(e) {
+            this.setState({color: e.target.value});
+          }
+          
+          setNewColor(e){
+            this.setState({
+              bgColor: this.state.color
+            });
+    
+            e.preventDefault();
+          }
+    
+          render() {
+            var squareStyle = {
+              backgroundColor: this.state.bgColor
+            };
+            var self = this;
+            return (
+              <div className="colorArea">
+                <div style={squareStyle} className="colorSquare"></div>
+    
+                <form onSubmit={this.setNewColor}>
+                  <input onChange={this.colorValue} 
+                         placeholder="Enter a color value"></input>
+                  <button type="submit">go</button>
+                </form>
+              </div>
+            );
+          }
+        }
+
+        // ---------------------------------------------------------------------
+        
+        var Square = React.createClass({ 
+            render: function() {            // life cycle function of component
+                // square style sets the square height inside the card dimensions
+                // and the colour (passed as a property)
+                var squareStyle = {
+                    height: 150, 
+                    backgroundColor: this.props.colour
+                }; 
+                return(
+                    <div style={squareStyle}>
+                    </div> 
+                );    
+            }
+        });
+
+        var Label = React.createClass({ 
+            render: function() {
+                // label style sets the text style - size is automatically set (remaining space on card)
+                var labelStyle = { 
+                    fontFamily: "sans-serif", 
+                    fontWeight: "bold", 
+                    padding: 13,
+                    //color:                                         // font colour (default is black)  
+                    margin: 0
+            };
+            return (
+                <p style={labelStyle}>{this.props.colour}</p>
+            )  
+        }
+        });
+        
+        var Card = React.createClass({ 
+            render: function() {
+                var cardStyle = {
+                    height: 200,
+                    width: 150,
+                    padding: 0,                                     // vertical distance from inside edge
+                    borderRadius: 0,                                // rounded edges
+                    margin: 10,                                     // horizontal distance to neighbour
+                    display: "inline-block",                        // no newline
+                    backgroundColor: "#FFF",                        // white 
+                    WebkitFilter: "drop-shadow(0px 0px 5px #666)",  // vendor-prefixed property
+                    filter: "drop-shadow(0px 0px 5px #666)"
+                };
+                return (
+                    <div style={cardStyle}>
+                        <Square colour={this.props.colour}/>
+                        <Label colour={this.props.colour}/>
+                    </div> );
+            }        
+        });
+
+        var Cards = React.createClass({          
+                render: function() {
+                            var renderData = [];
+                            for (var i = 0; i < COLOURS.length; i++) {
+                                var col = COLOURS[i];
+                                // providing a unique key with the 'key=' property 
+                                // enables React.js to optimise performance
+                                renderData.push(<Card key={i + col} colour={col}/>);  
+                            }
+                            return( 
+                                <div>
+                                    {renderData}
+                                </div> 
+                            );
+                        }                                 
+                }   
+            );  
+
+        ReactDOM.render( 
+            <div>
+                <Cards jsxArray={renderData}/>
+                <Colorizer/>
+                <p>Click below for more colours..</p>
+                <a href="https://www.computerhope.com/htmcolor.htm">More colours</a>
+            </div>,
+            document.querySelector("#container") ); 
+    </script>           
+</body>
+</html>
