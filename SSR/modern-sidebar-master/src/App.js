@@ -55,7 +55,7 @@ const items = [
 function App() {
   return (
     <div>
-      <Sidebar items={items} />
+      <SidebarMenu items={items} />
     </div>
   );
 }
