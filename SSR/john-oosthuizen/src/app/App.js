@@ -4,17 +4,21 @@ import React from 'react';
 import './App.css';                        // inherits and overrides index.css
 import Sidebar from '../sidebar/';
 import {ITEMS} from '../';
-
-// function onClick(e, item) {
-//  window.alert(JSON.stringify(item, null, 2));
-// }
+import SocialMediaButtons from '../socialmediabuttons';
 
 // set the select menu option in the state to HOME
 function App() {
   return (
-    <div className="App">
-      <Sidebar items={ITEMS}/>
-      <div class="sharethis-inline-share-buttons" style={{left:0,bot:0}}></div>      
+    <div class="outer-div">
+      <div class="app-header"/>
+      <div class="main-grid">
+        <div class="main-grid-item-1"> 
+          <Sidebar items={ITEMS} />
+        </div>
+        <div class="main-grid-item-2">
+          { /* build component called page-area, that invokes other components as per menu ITEMS */ }  
+        </div>
+      </div>  
     </div>
   );
 }

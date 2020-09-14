@@ -1,48 +1,51 @@
-.App {
-  text-align: center;
+.outer-div {
+    margin: 0;
+    padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-header {
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 20vh;
+    background-image: url("header-image.png");
+    background-size: cover;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app-title {
+    font: 32px;
+/*  font-family: ; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.main-grid {
+    display: inline-grid;
+    grid-template-columns: 24vw 73vw;
+    padding-left: 1vw;
+    grid-gap: 1vw;
+    grid-template-rows: 74vh; 
+    margin-top: 1vw; 
 }
 
-.App-link {
-  color: #61dafb;
+.main-grid-item-1 {
+    display: grid;
+    grid-row: 1; 
+    grid-column: 1;
+    margin: 0;
+    border: 2px solid rgb(150, 125, 125);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-grid-item-2 {
+    display: grid;
+    grid-row: 1; 
+    grid-column: 2;
+    border: 2px solid rgb(150, 125, 125);
 }
 
-.sharethis-inline-share-buttons {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  margin-bottom: 10;
-  margin-left: 10;
-  
-  
+.app-footer { 
+    height: 5vh;
+    width: 97vw;
+    margin-left: 1vw;
+    -webkit-transform:scale(0.5);
+    -moz-transform:scale(0.5);
+    -ms-transform:scale(0.5);
+    transform:scale(0.5);
 }
