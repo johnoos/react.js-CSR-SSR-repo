@@ -18,10 +18,10 @@
 
 .main-grid {
     display: inline-grid;
-    grid-template-columns: 24vw 73vw;
+    grid-template-columns: 24vw 71vw;
     padding-left: 1vw;
     grid-gap: 1vw;
-    grid-template-rows: 74vh; 
+    grid-template-rows: 76vh; 
     margin-top: 1vw; 
 }
 
@@ -30,7 +30,13 @@
     grid-row: 1; 
     grid-column: 1;
     margin: 0;
+    grid-template-rows: 68vh 8vh;
     border: 2px solid rgb(150, 125, 125);
+}
+
+.socialmediabuttons {
+    grid-row: 2;
+    justify-self: center;
 }
 
 .main-grid-item-2 {

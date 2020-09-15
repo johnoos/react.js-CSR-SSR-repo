@@ -14,6 +14,9 @@ function App() {
       <div class="main-grid">
         <div class="main-grid-item-1"> 
           <Sidebar items={ITEMS} />
+          <div class="socialmediabuttons">
+            <SocialMediaButtons/>
+          </div>  
         </div>
         <div class="main-grid-item-2">
           { /* build component called page-area, that invokes other components as per menu ITEMS */ }  
