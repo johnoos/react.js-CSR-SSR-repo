@@ -6,7 +6,7 @@
 .app-header {
     display: grid;
     grid-template-columns: 100vw;
-    grid-template-rows: 20vh;
+    grid-template-rows: 24vh;
     background-image: url("header-image.png");
     background-size: cover;
 }
@@ -18,10 +18,10 @@
 
 .main-grid {
     display: inline-grid;
-    grid-template-columns: 24vw 71vw;
+    grid-template-columns: 27vw 70vw;
     padding-left: 1vw;
     grid-gap: 1vw;
-    grid-template-rows: 76vh; 
+    grid-template-rows: 72vh; 
     margin-top: 1vw; 
 }
 
@@ -30,8 +30,8 @@
     grid-row: 1; 
     grid-column: 1;
     margin: 0;
-    grid-template-rows: 68vh 8vh;
-    border: 2px solid rgb(150, 125, 125);
+    grid-template-rows: 64vh 8vh;
+    border: 2px solid rgb(0, 0, 0, 0.2);
 }
 
 .socialmediabuttons {
@@ -43,15 +43,5 @@
     display: grid;
     grid-row: 1; 
     grid-column: 2;
-    border: 2px solid rgb(150, 125, 125);
-}
-
-.app-footer { 
-    height: 5vh;
-    width: 97vw;
-    margin-left: 1vw;
-    -webkit-transform:scale(0.5);
-    -moz-transform:scale(0.5);
-    -ms-transform:scale(0.5);
-    transform:scale(0.5);
+    border: 2px solid rgb(0, 0, 0, 0.2);
 }
