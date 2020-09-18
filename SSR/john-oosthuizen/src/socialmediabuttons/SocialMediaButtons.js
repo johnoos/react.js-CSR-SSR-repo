@@ -11,15 +11,15 @@ import {
     WhatsappIcon
   } from "react-share";
 
-function SocialMediaButtons(props) {
+function SocialMediaButtons(url, quote, hashtag) {
     return (
         <div>
           <FacebookShareButton 
-              url={"http://www.musictheory.co.za"}
-              quote={"Music theory tuition by videoconference from Stellenbosch"}
-              hashtag={"#MusicTheoryByVideoconference"}
+              url={url}
+              quote={quote}
+              hashtag={hashtag}
               className={SocialMediaButtons}>
-            <FacebookIcon size={36} borderRadius={15}/>
+            <FacebookIcon size={30} borderRadius={15}/>
           </FacebookShareButton>
           {/*}
            <EmailShareButton

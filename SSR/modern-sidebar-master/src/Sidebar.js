@@ -76,7 +76,7 @@ function SidebarItem({ depthStep = 10, depth = 0, expanded, item, ...rest }) {
       </Collapse>
     </>
   );
-}
+} 
 
 function Sidebar({ items, depthStep, depth, expanded }) {
   return (

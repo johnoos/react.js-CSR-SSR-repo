@@ -4,16 +4,19 @@
 }
 
 .app-header {
-    display: grid;
-    grid-template-columns: 100vw;
-    grid-template-rows: 24vh;
+    display: inline-grid;
+    grid-template-columns: 10vw 90vw;
+    grid-template-rows: 8vh 9vh;
+    padding-left: 1vw;
+    padding-top: 3vw;
     background-image: url("header-image.png");
-    background-size: cover;
+    background-size: cover;                        
 }
 
-.app-title {
-    font: 32px;
-/*  font-family: ; */
+.app-header-item-1 {
+    display: grid;
+    grid-column: 1; 
+    grid-row: 2;
 }
 
 .main-grid {
@@ -21,8 +24,7 @@
     grid-template-columns: 27vw 70vw;
     padding-left: 1vw;
     grid-gap: 1vw;
-    grid-template-rows: 72vh; 
-    margin-top: 1vw; 
+    grid-template-rows: 75vh;  
 }
 
 .main-grid-item-1 {
@@ -30,18 +32,12 @@
     grid-row: 1; 
     grid-column: 1;
     margin: 0;
-    grid-template-rows: 64vh 8vh;
-    border: 2px solid rgb(0, 0, 0, 0.2);
-}
-
-.socialmediabuttons {
-    grid-row: 2;
-    justify-self: center;
+    border: 2px solid rgb(0, 0, 0, 0.1);
 }
 
 .main-grid-item-2 {
     display: grid;
     grid-row: 1; 
     grid-column: 2;
-    border: 2px solid rgb(0, 0, 0, 0.2);
+    border: 2px solid rgb(0, 0, 0, 0.1);
 }
