@@ -1,16 +1,13 @@
 // npm install @material-ui/core @material-ui/icons
 
 import React, {Component} from 'react';
-import './App.css';          // inherits and overrides index.css
 
 // website menu
 import Sidebar from '../sidebar/';
 
 // website content
 import {  Background,
-          TrinityCollegeExamPrep, 
-          ExtraLessons,
-          ChildAdultBeginners,
+          PedagogicalApproach, 
           FeesMusicTheory,
           TemplateWebsite,
           FeesWebsites,
@@ -27,9 +24,6 @@ let selectedPageComponent = <Background/> ;
 
 
 // constants (customisation area)
-const URL = "http://www.musictheory.co.za";
-const QUOTE = "Music theory tuition by videoconference from Stellenbosch";
-const HASHTAG = "#MusicTheoryByVideoconference"; 
 
 const ITEMS = [ 
 
@@ -39,10 +33,8 @@ const ITEMS = [
 
   { name: "online-theory-lessons", label: "Online music theory lessons",
       items: [
-          { index: 1, name: "tcl-exams", label: "Trinity College exam preparation" },
-          { index: 2, name: "extra-lessons", label: "Extra lessons: learners & students" },
-          { index: 3, name: "beginners", label: "Child and adult beginners" },
-          { index: 4, name: "tuition-fees", label: "Tuition fees" }
+          { index: 1, name: "pedagogical-approach", label: "Pedagogical approach" },
+          { index: 2, name: "tuition-fees", label: "Tuition fees" }
       ] 
   },
 
@@ -50,8 +42,8 @@ const ITEMS = [
 
   { name: "it-websites", label: "Stylish, affordable IT websites",
     items: [
-          { index: 5, name: "template-website", label: "Template websites like this one" },
-          { index: 6, name: "website-fees", label: "Website fees" }        
+          { index: 3, name: "template-website", label: "Template websites like this one" },
+          { index: 4, name: "website-fees", label: "Website fees" }        
     ] 
   },
   
@@ -59,17 +51,15 @@ const ITEMS = [
 
   { name: "contact-us", label: "Contact us",
     items: [
-      { index: 7, name: "enquiries", label: "Enquiries (24-hour turn-around)" },
-      { index: 8, name: "sign-up", label: "Sign-up and banking details" }, 
-      { index: 9, name: "contact-info", label: "Contact info" }
+      { index: 5, name: "enquiries", label: "Enquiries (24-hour turn-around)" },
+      { index: 6, name: "sign-up", label: "Sign-up and banking details" }, 
+      { index: 7, name: "contact-info", label: "Contact info" }
     ]
   }
 ];
 
 const CONTENTCOMPONENTS = [ <Background/>,
-                            <TrinityCollegeExamPrep/>, 
-                            <ExtraLessons/>,
-                            <ChildAdultBeginners/>,
+                            <PedagogicalApproach/>, 
                             <FeesMusicTheory/>,
                             <TemplateWebsite/>,
                             <FeesWebsites/>,
@@ -101,12 +91,15 @@ class App extends Component {
       <div class="outer-div">
         <div class="app-header">
           <div class="app-header-item-1">
-            <SocialMediaButtons url={URL} quote={QUOTE} hashtag={HASHTAG} />
+            <SocialMediaButtons url={"http://www.google.com"} 
+                    quote={"Music theory tuition by videoconference from Stellenbosch"} 
+                    hashtag={"#MusicTheoryByVideoconference"} />
           </div> 
         </div>  
         <div class="main-grid">
           <div class="main-grid-item-1"> 
-            <Sidebar items={ITEMS} onClickProp={this.onClick} /> 
+            <Sidebar items={ITEMS} onClickProp={this.onClick} />
+            <div class="keyboard"/>
           </div>
           <div class="main-grid-item-2">
             {this.state.selectedPageComponent} 

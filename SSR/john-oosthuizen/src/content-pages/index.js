@@ -1,8 +1,6 @@
 import Background from './Background.js';
 import TemplateWebsite from './TemplateWebsite.js';
-import TrinityCollegeExamPrep from './TrinityCollegeExamPrep.js';
-import ExtraLessons from './ExtraLessons.js';
-import ChildAdultBeginners from './ChildAdultBeginners.js';
+import PedagogicalApproach from './PedagogicalApproach.js';
 import FeesMusicTheory from './FeesMusicTheory.js';
 import FeesWebsites from './FeesWebsites.js';
 import Enquiries24 from './Enquiries24.js';
@@ -11,9 +9,7 @@ import ContactUs from './ContactUs.js';
 
 export {    Background, 
             TemplateWebsite, 
-            TrinityCollegeExamPrep, 
-            ExtraLessons,
-            ChildAdultBeginners,
+            PedagogicalApproach, 
             FeesMusicTheory,
             FeesWebsites,
             Enquiries24,

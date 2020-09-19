@@ -4,7 +4,6 @@
 // import List, ListItem, Divider, and Icons - see examples
 
 import React, {Component} from "react";
-import './Sidebar.css';
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import SidebarItem from '../sidebaritem/';
