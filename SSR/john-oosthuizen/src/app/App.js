@@ -3,66 +3,63 @@
 import React, {Component} from 'react';
 
 // website menu
+import Header from '../header';
 import Sidebar from '../sidebar/';
 
 // website content
-import {  Background,
-          PedagogicalApproach, 
-          FeesMusicTheory,
-          TemplateWebsite,
-          FeesWebsites,
+import {  Home,
+          MusicHome,
+          MusicCredentials, 
+          MusicTheoryFees,
+          WebsiteHome,
+          WebsiteCredentials,
+          WebsiteFees,
           Enquiries24,
           SignupBankingDetails,
           ContactUs }
         from '../content-pages';
 
-// social media share buttons
-import SocialMediaButtons from '../socialmediabuttons';
-
-let selectedPageComponent = <Background/> ;
-
-
-
-// constants (customisation area)
-
 const ITEMS = [ 
 
-  { index: 0, name: "background", label: "Background" },
+  { index: 0, name: "home", label: "Home"},
 
   "divider",
 
-  { name: "online-theory-lessons", label: "Online music theory lessons",
-      items: [
-          { index: 1, name: "pedagogical-approach", label: "Pedagogical approach" },
-          { index: 2, name: "tuition-fees", label: "Tuition fees" }
-      ] 
-  },
+  { name: "music-theory", label: "Music Theory",
+      items:  [ { index: 1, name: "music-home", label: "Music theory home" },
+                { index: 2, name: "music-credentials", label: "Music credentials" },
+                { index: 3, name: "music-theory-fees", label: "Music theory tuition fees" }
+              ]             
+  },            
 
   "divider",
 
-  { name: "it-websites", label: "Stylish, affordable IT websites",
-    items: [
-          { index: 3, name: "template-website", label: "Template websites like this one" },
-          { index: 4, name: "website-fees", label: "Website fees" }        
-    ] 
+  { name: "websites-from-templates", label: "Website creation",
+      items:  [ { index: 4, name: "websites-home", label: "Websites from my templates" },
+                { index: 5, name: "website-credentials", label: "Website credentials" },
+                { index: 6, name: "website-fees", label: "Website fee structure" }
+              ] 
   },
-  
+
   "divider",
 
   { name: "contact-us", label: "Contact us",
-    items: [
-      { index: 5, name: "enquiries", label: "Enquiries (24-hour turn-around)" },
-      { index: 6, name: "sign-up", label: "Sign-up and banking details" }, 
-      { index: 7, name: "contact-info", label: "Contact info" }
-    ]
-  }
+      items:  [ { index: 7, name: "enquiries", label: "Enquiries (24-hour turn-around)" },
+                { index: 8, name: "sign-up", label: "Sign-up and banking details" }, 
+                { index: 9, name: "contact-info", label: "Contact info" }
+              ]
+  },
+
+  "divider"
 ];
 
-const CONTENTCOMPONENTS = [ <Background/>,
-                            <PedagogicalApproach/>, 
-                            <FeesMusicTheory/>,
-                            <TemplateWebsite/>,
-                            <FeesWebsites/>,
+const CONTENTCOMPONENTS = [ <Home/>,
+                            <MusicHome/>,
+                            <MusicCredentials/>, 
+                            <MusicTheoryFees/>,
+                            <WebsiteHome/>,
+                            <WebsiteCredentials/>,
+                            <WebsiteFees/>,
                             <Enquiries24/>,
                             <SignupBankingDetails/>,
                             <ContactUs/>              ];
@@ -72,39 +69,30 @@ class App extends Component {
     super(props);
 
     this.state = {
-      selectedPageComponent: <Background/>, 
-      oneOther: "initialValue" 
+      selectedPageComponent: <Home/> 
     };
-
-    // any bindings
     this.onClick = this.onClick.bind(this); 
   }
   
   onClick(e, item) {
-    // window.alert("A3: item -> " + JSON.stringify(item));
     this.setState({selectedPageComponent: CONTENTCOMPONENTS[item.index]});
   }
 
   render () {
-    // window.alert("(A1):typeof(this.onClick) -> " + typeof(this.onClick));
     return (
       <div class="outer-div">
-        <div class="app-header">
-          <div class="app-header-item-1">
-            <SocialMediaButtons url={"http://www.google.com"} 
-                    quote={"Music theory tuition by videoconference from Stellenbosch"} 
-                    hashtag={"#MusicTheoryByVideoconference"} />
-          </div> 
+        <div class="header-container">
+          <Header/>
         </div>  
-        <div class="main-grid">
-          <div class="main-grid-item-1"> 
-            <Sidebar items={ITEMS} onClickProp={this.onClick} />
-            <div class="keyboard"/>
-          </div>
-          <div class="main-grid-item-2">
-            {this.state.selectedPageComponent} 
-          </div>
-        </div>  
+        <div class="sidebar"> 
+          <Sidebar items={ITEMS} onClickProp={this.onClick}/>
+        </div>
+        <div class="keyboard-image-outer">
+          <div class="keyboard-image"></div>
+        </div>    
+        <div class="content-container">
+          {this.state.selectedPageComponent}
+        </div>
       </div>
     )};
   }  

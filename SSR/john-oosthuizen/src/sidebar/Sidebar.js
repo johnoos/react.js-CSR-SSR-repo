@@ -9,9 +9,6 @@ import Divider from "@material-ui/core/Divider";
 import SidebarItem from '../sidebaritem/';
 
 class Sidebar extends Component {
-  constructor(props) {
-    super(props);  
-  }
   
   render () {
     const {items, depthStep, depth, expanded, onClickProp} = this.props;
@@ -19,7 +16,7 @@ class Sidebar extends Component {
     const app_onClick_handler = onClickProp;
     // window.alert("(S2): typeof(app_onClick_handler) -> " + typeof(app_onClick_handler));
     return (
-      <div className="sidebar" display="inline">
+      <div>
         <List disablePadding dense>
           {items.map((sidebarItem, index) => (
             <React.Fragment key={`${sidebarItem.name}${index}`}>

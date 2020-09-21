@@ -2,7 +2,7 @@ import React from 'react';
 
 function Enquiries24 () {
     return (
-        <div class="enquiries-24">
+        <div>
             <p>
                 google form
             </p>

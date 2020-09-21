@@ -2,7 +2,7 @@ import React from 'react';
 
 function SignupBankingDetails () {
     return (
-        <div class="signup-banking-details">
+        <div>
             <p>
                 
             </p>
